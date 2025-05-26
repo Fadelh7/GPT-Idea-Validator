@@ -1,0 +1,113 @@
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+textarea {
+  resize: vertical;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+button {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+.result {
+  margin-top: 2rem;
+  background: #f6f8fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+.result h2 span {
+  font-size: 1.5em;
+}
+.history-btn {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  background: #f6f8fa;
+  border: 1px solid #0078d4;
+  color: #0078d4;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.history-btn:hover {
+  background: #e6f0fa;
+}
+.side-table-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+.side-table {
+  background: #fff;
+  width: 350px;
+  height: 100%;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.12);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  overflow-y: auto;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+}
+.history-item {
+  margin-bottom: 1.5rem;
+}
+.toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: #0078d4;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  z-index: 2000;
+  animation: fadeInOut 2s;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
