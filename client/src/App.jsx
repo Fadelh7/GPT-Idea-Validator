@@ -48,7 +48,7 @@ function App() {
     setLoading(true);
     setResult(null);
     try {
-      const res = await fetch('http://localhost:3000/evaluate', {
+      const res = await fetch('https://gpt-idea-validator.onrender.com/evaluate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ idea })
