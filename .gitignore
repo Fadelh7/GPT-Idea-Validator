@@ -9,9 +9,8 @@ server/.env
 # Logs
 *.log
 
-# Vite/React build output
-dist/
-client/dist/
+
+
 
 # Misc
 .DS_Store
