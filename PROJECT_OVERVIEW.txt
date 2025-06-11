@@ -1,0 +1,72 @@
+GPT-IDEA-Validator Project Overview
+==================================
+
+Project Structure
+-----------------
+- Root
+  - README.md — Project overview and setup instructions.
+  - client/ — React/Vite frontend.
+  - server/ — Node.js/Express backend.
+
+
+Server (server/)
+----------------
+- Tech Stack: Node.js, Express, OpenAI SDK, dotenv, cors.
+- Main File: index.js
+- How it works:
+  1. Loads environment variables (expects OPENAI_API_KEY and optionally PORT).
+  2. Sets up an Express server with CORS and JSON body parsing.
+  3. Defines a single POST endpoint /evaluate:
+     - Expects { idea: string } in the request body.
+     - Constructs a prompt for the OpenAI API, asking it to act as a startup mentor and evaluate the idea.
+     - Sends the prompt to OpenAI's GPT-3.5-turbo model.
+     - Parses the response for:
+       - Verdict (Promising/Needs Work)
+       - Explanation (bullet points)
+       - Suggestion (concrete improvement)
+     - Returns these as JSON.
+  4. Listens on the specified port (default 3000).
+- Environment Variables:
+  - OPENAI_API_KEY (required)
+  - PORT (optional, defaults to 3000)
+
+
+Client (client/)
+----------------
+- Tech Stack: React, Vite, Tailwind CSS (planned), lucide-react (icons).
+- Main Files:
+  - src/App.jsx — Main UI and logic.
+  - src/main.jsx — React entry point.
+  - index.html — HTML entry point.
+  - App.css — Main styling.
+- How it works:
+  1. UI: Simple form for entering a startup idea, a submit button, and a history sidebar.
+  2. On Submit:
+     - Sends a POST request to /evaluate (hardcoded to https://gpt-idea-validator.onrender.com/evaluate in the code, but should be your server in local/dev).
+     - Displays loading state.
+     - On response, shows:
+       - Verdict
+       - Explanation (as bullet points)
+       - Suggestion
+     - Adds the result to a local history (shown in a sidebar).
+     - Shows a toast notification.
+  3. Styling: Clean, modern, responsive design using custom CSS (Tailwind config is present but empty).
+- Development:
+  - Run with npm run dev (Vite, default port 5173).
+  - Connects to the backend for idea evaluation.
+
+
+Usage Flow
+----------
+1. User enters a startup idea in the frontend.
+2. Frontend sends the idea to the backend /evaluate endpoint.
+3. Backend sends the idea to OpenAI, parses the response, and returns a structured verdict, explanation, and suggestion.
+4. Frontend displays the results and keeps a local history.
+
+
+Summary
+-------
+- Client: React app for user interaction, history, and displaying results.
+- Server: Express API that wraps OpenAI's GPT for idea evaluation.
+- Communication: JSON over HTTP POST.
+- Setup: Each part (client, server) is started separately. 
